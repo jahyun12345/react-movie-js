@@ -17,7 +17,7 @@ function Favorite(props) {
         .then(response => {
             // 성공
             if (response.data.success) {
-                // console.log(response.data);
+
             // 실패 
             } else {
                 alert('failed loading data');
