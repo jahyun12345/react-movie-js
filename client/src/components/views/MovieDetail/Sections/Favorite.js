@@ -12,7 +12,7 @@ function Favorite(props) {
     const [FavoriteNumber, setFavoriteNumber] = useState(0);
     const [Favorited, setFavorited] = useState(false);
 
-    let veriables = {
+    let variables = {
         userFrom: userFrom,
         movieId: movieId,
         movieTitle: movieTitle,
@@ -21,7 +21,7 @@ function Favorite(props) {
     }
 
     useEffect(() => {
-        Axios.post('/api/favorite/favoriteNumber', veriables)
+        Axios.post('/api/favorite/favoriteNumber', variables)
         .then(response => {
             // 성공
             if (response.data.success) {
@@ -34,7 +34,7 @@ function Favorite(props) {
             }
         })
 
-        Axios.post('/api/favorite/favorited', veriables)
+        Axios.post('/api/favorite/favorited', variables)
         .then(response => {
             // 성공
             if (response.data.success) {
@@ -50,7 +50,7 @@ function Favorite(props) {
 
     const onClickFavorite = () => {
         if (Favorited) {
-            Axios.post('/api/favorite/removeFromFavorite', veriables)
+            Axios.post('/api/favorite/removeFromFavorite', variables)
             .then(response => {
                 if (response.data.success) {
                     setFavoriteNumber(FavoriteNumber - 1);
@@ -60,7 +60,7 @@ function Favorite(props) {
                 }
             })
         } else if (!Favorited) {
-            Axios.post('/api/favorite/addToFavorite', veriables)
+            Axios.post('/api/favorite/addToFavorite', variables)
             .then(response => {
                 if (response.data.success) {
                     setFavoriteNumber(FavoriteNumber + 1);
