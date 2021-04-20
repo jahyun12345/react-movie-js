@@ -4,7 +4,7 @@ import MainImage from '../commons/MainImage';
 import MovieInfo from'./Sections/MovieInfo';
 import GridCards from '../commons/GridCards';
 import Favorite from './Sections/Favorite';
-import { Row } from 'antd';
+import { Row, Button } from 'antd';
 
 function MovieDetail(props) {
     let movieId = props.match.params.movieId;
@@ -56,7 +56,7 @@ function MovieDetail(props) {
 
                 {/* Actors Grid */}
                 <div style={{display:'flex', justifyContent:'center', margin:'2rem'}}>
-                    <button onClick={toggleActorView}>Toggle Actor View</button>
+                    <Button onClick={toggleActorView}>Toggle Actor View</Button>
                 </div>
                 {ActorToggle &&
                     <Row gutter={[16, 16]}>
