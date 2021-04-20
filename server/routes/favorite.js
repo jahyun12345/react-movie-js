@@ -19,7 +19,7 @@ router.post('/favoriteNumber', (req, res) => {
     // send number data to front
 })
 
-// my-favorite-movie-list
+// favorite-condition
 router.post('/favorited', (req, res) => {
     // favoried from mongoDB
     Favorite.find({"movieId":req.body.movieId, "userFrom":req.body.userFrom})
@@ -46,6 +46,15 @@ router.post('/removeFromFavorite', (req, res) => {
     .exec((err, doc) => {
         if (err) return res.status(400).send(err)
         res.status(200).json({success:true, doc})
+    })
+})
+
+// my-favorite-movie-list
+router.post('/getFavoredMovie', (req, res) => {
+    Favorite.find({userFrom:req.body.userFrom})
+    .exec((err, favorites) => {
+        if (err) return res.status(400).send(err)
+        return res.status(200).json({success:true, favorites})
     })
 })
 
