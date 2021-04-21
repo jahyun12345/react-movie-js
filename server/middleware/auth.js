@@ -3,7 +3,7 @@ const { User } = require('../models/User.js');
 let auth = (req, res, next) => {
     // 인증 처리
     // 클라이언트 쿠키 토큰 가져옴
-    // index.tsx 파일에 x_auth로 쿠키 값 설정
+    // index.js 파일에 x_auth로 쿠키 값 설정
     let token = req.cookies.x_auth;
     // 토큰 복호화(암호문 평문으로 변환) 후 사용자 찾음
     User.findByToken (token, (err, user) => {

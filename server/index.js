@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 const { User } = require('./models/User.js');
 const { Favorite } = require('./models/Favorite.js');
 
-const config = require('./config/key.tsx');
+const config = require('./config/key.js');
 const cookieParser = require('cookie-parser');
 const { auth } = require('./middleware/auth.js');
 
