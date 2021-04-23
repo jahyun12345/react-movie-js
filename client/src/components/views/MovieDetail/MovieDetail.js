@@ -30,7 +30,7 @@ function MovieDetail(props) {
         .then(response => {
             setCasts(response.cast)
         })
-    })
+    }, [])
 
     const toggleActorView = () => {
         setActorToggle(!ActorToggle);

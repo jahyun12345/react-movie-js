@@ -32,7 +32,7 @@ function Favorite(props) {
                 alert('failed loading data');
 
             }
-        })
+        }, [])
 
         Axios.post('/api/favorite/favorited', variables)
         .then(response => {
